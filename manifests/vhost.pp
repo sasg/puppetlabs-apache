@@ -125,6 +125,7 @@ define apache::vhost(
   $passenger_app_root          = undef,
   $passenger_app_env           = undef,
   $passenger_ruby              = undef,
+  $passenger_high_performance  = undef,
   $passenger_min_instances     = undef,
   $passenger_start_timeout     = undef,
   $passenger_pre_start         = undef,
@@ -992,11 +993,12 @@ define apache::vhost(
   # - $passenger_app_root
   # - $passenger_app_env
   # - $passenger_ruby
+  # - $passenger_high_performance
   # - $passenger_min_instances
   # - $passenger_start_timeout
   # - $passenger_pre_start
   # - $passenger_user
-  if $passenger_app_root or $passenger_app_env or $passenger_ruby or $passenger_min_instances or $passenger_start_timeout or $passenger_pre_start or $passenger_user {
+  if $passenger_app_root or $passenger_app_env or $passenger_ruby or $passenger_high_performance or $passenger_min_instances or $passenger_start_timeout or $passenger_pre_start or $passenger_user {
     concat::fragment { "${name}-passenger":
       target  => "${priority_real}${filename}.conf",
       order   => 300,

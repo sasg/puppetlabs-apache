@@ -201,7 +201,7 @@ describe 'apache::vhost', :type => :define do
               'path'     => '/var/www/files',
               'provider' => 'files',
               'require'  =>
-              { 
+              {
                 'enforce'  => 'all',
                 'requires' => ['all-valid1', 'all-valid2'],
               },
@@ -210,7 +210,7 @@ describe 'apache::vhost', :type => :define do
               'path'     => '/var/www/files',
               'provider' => 'files',
               'require'  =>
-              { 
+              {
                 'enforce'  => 'none',
                 'requires' => ['none-valid1', 'none-valid2'],
               },
@@ -219,7 +219,7 @@ describe 'apache::vhost', :type => :define do
               'path'     => '/var/www/files',
               'provider' => 'files',
               'require'  =>
-              { 
+              {
                 'enforce'  => 'any',
                 'requires' => ['any-valid1', 'any-valid2'],
               },
@@ -370,10 +370,10 @@ describe 'apache::vhost', :type => :define do
           'passenger_app_root'          => '/usr/share/myapp',
           'passenger_app_env'           => 'test',
           'passenger_ruby'              => '/usr/bin/ruby1.9.1',
+          'passenger_high_performance'  => true,
           'passenger_min_instances'     => '1',
           'passenger_start_timeout'     => '600',
           'passenger_pre_start'         => 'http://localhost/myapp',
-          'passenger_high_performance'  => true,
           'passenger_user'              => 'sandbox',
           'add_default_charset'         => 'UTF-8',
           'jk_mounts'                   => [
